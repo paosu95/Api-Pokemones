@@ -9,15 +9,14 @@ import style from '../home/home.module.css';
 import internationalPokemon from '../../img/International_Pokémon_logo.svg.webp';
 
 export default function Home() {
-  const dispatch = useDispatch(); //pasar los cambios al reducer
-  const allpokemons = useSelector((state) => state.pokemons); //refrescar el estado con el nuevo valor en la interfaz de usuario
-
+  const dispatch = useDispatch(); 
+  const allpokemons = useSelector((state) => state.pokemons); // Selecciona una parte del estado
+//pide los pokemones haciendo dispatch de getPokemons
   useEffect(() => {
     dispatch(getPokemons());
-  }, [dispatch]);
+  }, [dispatch]); //dependencias
 
-  function handleClick(e) {
-    e.preventDefault();
+  function handleClick() {
     dispatch(getPokemons());
   }
 
@@ -26,9 +25,7 @@ export default function Home() {
       <button
         type="button"
         className={style.allPokemons}
-        onClick={(e) => {
-          handleClick(e);
-        }}
+        onClick={handleClick}
       >
         All pokemons
       </button>
@@ -48,7 +45,7 @@ export default function Home() {
       </div>
 
       <div className={style.cards}>
-        {allpokemons?.map((p) => (
+        {allpokemons.map((p) => (
           <Link className={style.link} key={p.id} to={`/home/${p.id}`}>
             <Card
               className={style.card}

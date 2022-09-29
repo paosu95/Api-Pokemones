@@ -7,6 +7,7 @@ const getPokemons = async () => {
     // offset -> omita
 
     //Se traen todo los pokemones
+    // const pokemonResponse = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=20');
     const pokemonResponse = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=20&offset=20');
     const results = pokemonResponse.data.results; //se guardan los pokemones en la constante results
     

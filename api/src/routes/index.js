@@ -15,7 +15,7 @@ const router = Router();
 router.get('/pokemons', async (request, response) => {
   const name = request.query.name;
   if (name) {
-    const pokemon = await Pokemon.findOne({ where: { name } });
+    const pokemon = await Pokemon.findOne({ where: { name }, include: Type });
 
     if (!pokemon) {
       return response.status(404).send({ error: 'El pokemon no existe' });
