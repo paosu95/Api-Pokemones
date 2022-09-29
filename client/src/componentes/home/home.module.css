@@ -1,0 +1,63 @@
+.body{
+    width: 100%;
+    height: 100%;
+   
+}
+.contenedorPadre{
+    background: linear-gradient(90deg, rgba(97,222,50,1) 0%, rgba(255,251,120,1) 50%, rgba(252,142,69,1) 100%);
+     position: absolute;
+    
+}
+.logo_pokemon{
+    margin-top: 10px;
+   width: 200px;
+
+}
+
+.allPokemons{
+    margin-top: 55px;
+    position: absolute;
+    margin-left: 140px;
+    display: flex;
+    border: none;
+    background: none;
+    font-family: 'Bungee Spice', cursive;
+    color: rgba(6, 6, 192, 0.955);
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+.createPokemon{
+    
+    margin-top: 30px;
+    color: rgba(6, 6, 192, 0.955);
+    margin-top: 61px;
+    /* display: flex; */
+    position: absolute;
+    margin-left: 505px;
+    text-decoration: none;
+    font-family: 'Bungee Spice', cursive;
+    font-size: 20px;
+
+}
+
+
+
+.cards{
+
+ display: flex;
+ justify-content: flex-start;
+ flex-wrap: wrap;
+ margin-top: 100px;
+border-color: black;
+width: 100%;
+
+}
+   
+
+.button{
+    width: 30px;
+    height: 30px;
+}
+
