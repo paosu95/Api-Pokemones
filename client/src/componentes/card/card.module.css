@@ -1,43 +1,23 @@
 .padreCard {
-  padding: 0px 40px 30px 170px;
-  align-items: center;
-  justify-content: center;
- 
-}
-
-.card {
-  border-color: black;
-  margin-bottom: 100px;
-  background: #e0e0e0;
- 
-
+  background-color: rgba(240, 248, 255, 0.478);
+  border: solid rgba(0, 0, 0, 0.284);
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px,
+    rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
+    rgb(0 0 0 / 9%) 0px -3px 5px;
 }
 
 .image {
   width: 160px;
   height: 160px;
-  border: solid rgba(0, 0, 0, 0.284);
-  padding: 50px;
-  background-color: rgba(240, 248, 255, 0.478);
-  align-items: center;
+  padding: 0 50px;
   cursor: pointer;
-  margin-bottom: 30px; 
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.name{
-    position: absolute;
-    justify-content: center;
-    margin-left: 80px;
-    font-family: 'Bungee Spice', cursive;
 }
 
-.type{
-   
-   text-decoration: none;
-    margin-top: -70px;
-    color: black;
-    font-family: 'Bungee Spice', cursive;
-    
-    
-    
+.name {
+  font-family: 'Bungee Spice', cursive;
+}
+
+.type {
+  color: black;
+  font-family: 'Bungee Spice', cursive;
 }

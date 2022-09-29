@@ -49,7 +49,7 @@ export default function Home() {
 
       <div className={style.cards}>
         {allpokemons?.map((p) => (
-          <Link key={p.id} to={`/home/${p.id}`}>
+          <Link className={style.link} key={p.id} to={`/home/${p.id}`}>
             <Card
               className={style.card}
               name={p.name}
