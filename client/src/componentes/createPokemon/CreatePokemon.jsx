@@ -44,83 +44,120 @@ export default function CreatePokemon() {
       </div>
       <form className={style.formulario} onSubmit={handleFormSubmit}>
         <div className={style.primerFormulario}>
-          <label className={style.nombre}>Name </label>
-          <input
-            className={style.input}
-            type="text"
-            value={input.name}
-            name="name"
-            onChange={(e) => setInput({ ...input, name: e.target.value })}
-          />
-          <label className={style.nombre}>Picture </label>
-          <input
-            className={style.input}
-            type="text"
-            value={input.picture}
-            name="image"
-            onChange={(e) => setInput({ ...input, picture: e.target.value })}
-          />
-          <label className={style.nombre}>Hp</label>
-          <input
-            className={style.input}
-            type="text"
-            value={input.hp}
-            name="hp"
-            onChange={(e) => setInput({ ...input, hp: e.target.value })}
-          />
-          <label className={style.nombre}>Attack </label>
-          <input
-            className={style.input}
-            type="text"
-            value={input.attack}
-            name="attack"
-            onChange={(e) => setInput({ ...input, attack: e.target.value })}
-          />
-          <label className={style.nombre}>Defense </label>
-          <input
-            className={style.input}
-            type="text"
-            value={input.defense}
-            name="defense"
-            onChange={(e) => setInput({ ...input, defense: e.target.value })}
-          />
-          <label className={style.nombre}>Speed </label>
-          <input
-            className={style.input}
-            type="text"
-            value={input.speed}
-            name="speed"
-            onChange={(e) => setInput({ ...input, speed: e.target.value })}
-          />{' '}
-          <label className={style.nombre}>Height </label>
-          <input
-            className={style.input}
-            type="text"
-            value={input.height}
-            name="heigth"
-            onChange={(e) => setInput({ ...input, height: e.target.value })}
-          />
-          <label className={style.nombre}>Weight </label>
-          <input
-            className={style.input}
-            type="text"
-            value={input.weight}
-            name="weight"
-            onChange={(e) => setInput({ ...input, weight: e.target.value })}
-          />
+          <div className={style.group}>
+            <label className={style.nombre}>
+              Name
+              <input
+                className={style.input}
+                type="text"
+                value={input.name}
+                name="name"
+                onChange={(e) => setInput({ ...input, name: e.target.value })}
+              />
+            </label>
+          </div>
+          <div className={style.group}>
+            <label className={style.nombre}>
+              Picture
+              <input
+                className={style.input}
+                type="text"
+                value={input.picture}
+                name="image"
+                onChange={(e) =>
+                  setInput({ ...input, picture: e.target.value })
+                }
+              />
+            </label>
+          </div>
+          <div className={style.group}>
+            <label className={style.nombre}>
+              Hp
+              <input
+                className={style.input}
+                type="text"
+                value={input.hp}
+                name="hp"
+                onChange={(e) => setInput({ ...input, hp: e.target.value })}
+              />
+            </label>
+          </div>
+          <div className={style.group}>
+            <label className={style.nombre}>
+              Attack
+              <input
+                className={style.input}
+                type="text"
+                value={input.attack}
+                name="attack"
+                onChange={(e) => setInput({ ...input, attack: e.target.value })}
+              />
+            </label>
+          </div>
+          <div className={style.group}>
+            <label className={style.nombre}>
+              Defense
+              <input
+                className={style.input}
+                type="text"
+                value={input.defense}
+                name="defense"
+                onChange={(e) =>
+                  setInput({ ...input, defense: e.target.value })
+                }
+              />
+            </label>
+          </div>
+          <div className={style.group}>
+            <label className={style.nombre}>
+              Speed
+              <input
+                className={style.input}
+                type="text"
+                value={input.speed}
+                name="speed"
+                onChange={(e) => setInput({ ...input, speed: e.target.value })}
+              />
+            </label>
+          </div>
+          <div className={style.group}>
+            <label className={style.nombre}>
+              Height
+              <input
+                className={style.input}
+                type="text"
+                value={input.height}
+                name="heigth"
+                onChange={(e) => setInput({ ...input, height: e.target.value })}
+              />
+            </label>
+          </div>
+          <div className={style.group}>
+            <label className={style.nombre}>
+              Weight
+              <input
+                className={style.input}
+                type="text"
+                value={input.weight}
+                name="weight"
+                onChange={(e) => setInput({ ...input, weight: e.target.value })}
+              />
+            </label>
+          </div>
         </div>
         <div className={style.formularioTypes}>
           <h3 className={style.tituloTypes}>Select types</h3>
-          {types.map((t) => (
-            <div className={style.types}>
-              <input type="checkbox" /> {t.name}
-            </div>
-          ))}
+          <div className={style['layout-types']}>
+            {types.map((t) => (
+              <div key={t.id} className={style.types}>
+                <input type="checkbox" /> {t.name}
+              </div>
+            ))}
+          </div>
+          <button className={style.button} type="submit">
+            Create
+          </button>
         </div>
-
-        <button className={style.button} type="submit">
-          Create
-        </button>
       </form>
     </div>
   );

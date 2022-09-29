@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './card.module.css';
 
-
 export default function Card({ name, image, types }) {
   return (
     <div className={style.padreCard}>
@@ -13,7 +12,7 @@ export default function Card({ name, image, types }) {
       </div>
       <div>
         {types.map((t) => (
-          <p className={style.type}>{t.name}</p>
+          <p key={t.id} className={style.type}>{t.name}</p>
         ))}
       </div>
     </div>
