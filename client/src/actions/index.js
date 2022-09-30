@@ -13,12 +13,12 @@ export function getPokemons() {
 export function getNamePokemons(name) {
   return async function (dispatch) {
     try {
-      const json = await axios.get(
+      const response = await axios.get(
         'http://localhost:4000/pokemons?name=' + name,
       );
       return dispatch({
         type: 'GET_NAME_POKEMONS',
-        payload: json.data,
+        payload: response.data,
       });
     } catch (error) {
       alert(error.response.data.error);

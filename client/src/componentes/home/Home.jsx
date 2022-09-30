@@ -1,51 +1,111 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPokemons } from '../../actions';
+import { getPokemons, getTypes } from '../../actions';
 import { Link } from 'react-router-dom';
 import Card from '../card/Card';
 import SearchBar from '../searchBar/SearchBar';
 import style from '../home/home.module.css';
-import internationalPokemon from '../../img/International_Pokémon_logo.svg.webp';
 
 export default function Home() {
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const allpokemons = useSelector((state) => state.pokemons); // Selecciona una parte del estado
-//pide los pokemones haciendo dispatch de getPokemons
+  const types = useSelector((state) => state.types);
+
+  const [orderBy, setOrderBy] = useState('asc');
+  const [filterByType, setFilterByType] = useState('all');
+  const [filterBySource, setFilterBySource] = useState('all');
+
+  const pokemons = allpokemons.filter((pokemon) => {
+    if (filterByType !== 'all' && filterBySource !== 'all') {
+      if (filterBySource === 'pokeapi') {
+        return (
+          pokemon.Types.some((t) => t.id === Number(filterByType)) &&
+          pokemon.fromPokeApi
+        );
+      } else {
+        return (
+          pokemon.Types.some((t) => t.id === Number(filterByType)) &&
+          !pokemon.fromPokeApi
+        );
+      }
+    } else if (filterByType !== 'all') {
+      return pokemon.Types.some((t) => t.id === Number(filterByType));
+    } else if (filterBySource !== 'all') {
+      if (filterBySource === 'pokeapi') {
+        return pokemon.fromPokeApi;
+      } else {
+        return !pokemon.fromPokeApi;
+      }
+    } else {
+      return true;
+    }
+  });
+
+  //pide los pokemones haciendo dispatch de getPokemons
   useEffect(() => {
     dispatch(getPokemons());
+    dispatch(getTypes());
   }, [dispatch]); //dependencias
-
-  function handleClick() {
-    dispatch(getPokemons());
-  }
 
   return (
     <div className={style.contenedorPadre}>
-      <button
-        type="button"
-        className={style.allPokemons}
-        onClick={handleClick}
-      >
-        All pokemons
-      </button>
-      <Link className={style.createPokemon} to="/pokemon">
-        Create Pokemon
-      </Link>
-
-      <img
-        className={style.logo_pokemon}
-        src={internationalPokemon}
-        alt="international_pokemon"
-      />
-
       <div>
         <SearchBar />
         <hr></hr>
       </div>
 
+      <div className={style.filters}>
+        <div className={style.orderBy}>
+          <p>Order by</p>
+          <select
+            title="Order by"
+            value={orderBy}
+            onChange={(e) => setOrderBy(e.target.value)}
+          >
+            <optgroup label="Name">
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
+            </optgroup>
+            <optgroup label="Attack">
+              <option value="strongest">Strongest</option>
+              <option value="weakest">Weakest</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div className={style.filterByType}>
+          <p>Filter by type</p>
+          <select
+            title="Filter by type"
+            value={filterByType}
+            onChange={(e) => setFilterByType(e.target.value)}
+          >
+            <option value="all">All</option>
+            {types.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <p>Filter by source</p>
+          <select
+            title="Filter by source"
+            value={filterBySource}
+            onChange={(e) => setFilterBySource(e.target.value)}
+          >
+            <option value="all">All</option>
+            <option value="pokeapi">Pokeapi</option>
+            <option value="database">Database</option>
+          </select>
+        </div>
+      </div>
+
       <div className={style.cards}>
-        {allpokemons.map((p) => (
+        {pokemons.map((p) => (
           <Link className={style.link} key={p.id} to={`/home/${p.id}`}>
             <Card
               className={style.card}

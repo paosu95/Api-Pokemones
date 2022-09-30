@@ -1,26 +1,54 @@
-.padreInput{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.padreInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.input{
-    width: 300px;
-    height: 30px;
-    margin-top: 15px;
-    border-radius: 5px;
-    border-color: blue;
-    padding-left: 10px;
-    font-family: 'Bungee Spice', cursive;
-    font-size: 15px;
-    margin-bottom: 10px;
+.input {
+  width: 300px;
+  height: 30px;
+  margin-top: 15px;
+  border-radius: 5px;
+  border-color: blue;
+  padding-left: 10px;
+  font-family: 'Bungee Spice', cursive;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.buttonSearch {
+  margin-top: 5px;
+  background-color: blue;
+  color: white;
+  height: 36px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Bungee Spice', cursive;
+}
 
+.logo_pokemon {
+  margin-top: 10px;
+  width: 200px;
 }
-.buttonSearch{
-    margin-top: 5px;
-    background-color: blue;
-    color: white;
-    height: 36px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Bungee Spice', cursive;
+
+.allPokemons {
+  margin-top: 55px;
+  position: absolute;
+  margin-left: 140px;
+  display: flex;
+  border: none;
+  background: none;
+  font-family: 'Bungee Spice', cursive;
+  color: rgba(6, 6, 192, 0.955);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.createPokemon {
+  margin-top: 30px;
+  color: rgba(6, 6, 192, 0.955);
+  margin-top: 61px;
+  position: absolute;
+  margin-left: 505px;
+  text-decoration: none;
+  font-family: 'Bungee Spice', cursive;
+  font-size: 20px;
 }

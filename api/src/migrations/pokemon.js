@@ -44,6 +44,7 @@ const getPokemons = async () => {
             speed: detail.stats.find(c => c.stat.name === "speed").base_stat,
             height: detail.height,
             weight: detail.weight,
+            fromPokeApi: true,
         };
 
         pokemons.push(pokemon);

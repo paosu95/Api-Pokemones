@@ -41,8 +41,11 @@ module.exports = (sequelize) => {
     weight: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
+    },
+    fromPokeApi: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   });
 };
-
-

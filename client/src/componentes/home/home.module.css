@@ -3,36 +3,6 @@
   height: 100%;
 }
 
-.logo_pokemon {
-  margin-top: 10px;
-  width: 200px;
-}
-
-.allPokemons {
-  margin-top: 55px;
-  position: absolute;
-  margin-left: 140px;
-  display: flex;
-  border: none;
-  background: none;
-  font-family: 'Bungee Spice', cursive;
-  color: rgba(6, 6, 192, 0.955);
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.createPokemon {
-  margin-top: 30px;
-  color: rgba(6, 6, 192, 0.955);
-  margin-top: 61px;
-  /* display: flex; */
-  position: absolute;
-  margin-left: 505px;
-  text-decoration: none;
-  font-family: 'Bungee Spice', cursive;
-  font-size: 20px;
-}
-
 .cards {
   display: flex;
   justify-content: space-between;
@@ -51,4 +21,13 @@
   text-decoration: none;
   margin-bottom: 60px;
   width: 265px;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+}
+
+.orderBy, .filterByType {
+  margin-right: 200px;
 }

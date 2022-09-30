@@ -36,7 +36,7 @@ router.get('/pokemons/:id', async (request, response) => {
     return response.status(400).send({ error: 'El id no es valido' });
   }
   //busca por llav eprimaria el id en la base de datos
-  const pokemon = await Pokemon.findByPk(id,{include: Type});
+  const pokemon = await Pokemon.findByPk(id, { include: Type });
   if (!pokemon) {
     return response.status(404).send({ error: 'El pokemon no existe' });
   }
@@ -60,10 +60,10 @@ router.post('/pokemons', async (request, response) => {
         'weight',
       ],
     });
-    response.send(pokemon); //*
+    response.send(await Pokemon.findByPk(pokemon.id, { include: Type }));
   } catch (error) {
     if (error instanceof ValidationError) {
-      return response.status(400).send(error.errors.map((e) => e.message));
+      return response.status(400).send(error.errors.map((e) => e.message)); //** */
     } else {
       return response.status(500).send({ error: error.message });
     }

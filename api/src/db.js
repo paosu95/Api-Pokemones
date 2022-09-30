@@ -32,6 +32,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Pokemon, Type } = sequelize.models;
 
+// Pokemon.sync({alter:true});
+
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
