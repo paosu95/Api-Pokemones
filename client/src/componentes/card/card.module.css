@@ -4,6 +4,7 @@
   box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px,
     rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
     rgb(0 0 0 / 9%) 0px -3px 5px;
+    border-radius: 10px;
 }
 
 .image {
@@ -14,10 +15,12 @@
 }
 
 .name {
-  font-family: 'Bungee Spice', cursive;
+  font-family: 'Lato', sans-serif;
+  color: rgba(11, 11, 156, 0.955);
 }
 
 .type {
-  color: black;
-  font-family: 'Bungee Spice', cursive;
+  color: rgba(11, 11, 156, 0.955);
+  font-family: 'Lato', sans-serif;
+
 }

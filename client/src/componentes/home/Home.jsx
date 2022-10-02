@@ -6,47 +6,96 @@ import { Link } from 'react-router-dom';
 import Card from '../card/Card';
 import SearchBar from '../searchBar/SearchBar';
 import style from '../home/home.module.css';
+import Paginado from '../paginado/Paginado';
 
 export default function Home() {
   const dispatch = useDispatch();
   const allpokemons = useSelector((state) => state.pokemons); // Selecciona una parte del estado
   const types = useSelector((state) => state.types);
 
-  const [orderBy, setOrderBy] = useState('asc');
-  const [filterByType, setFilterByType] = useState('all');
-  const [filterBySource, setFilterBySource] = useState('all');
-
-  const pokemons = allpokemons.filter((pokemon) => {
-    if (filterByType !== 'all' && filterBySource !== 'all') {
-      if (filterBySource === 'pokeapi') {
-        return (
-          pokemon.Types.some((t) => t.id === Number(filterByType)) &&
-          pokemon.fromPokeApi
-        );
-      } else {
-        return (
-          pokemon.Types.some((t) => t.id === Number(filterByType)) &&
-          !pokemon.fromPokeApi
-        );
-      }
-    } else if (filterByType !== 'all') {
-      return pokemon.Types.some((t) => t.id === Number(filterByType));
-    } else if (filterBySource !== 'all') {
-      if (filterBySource === 'pokeapi') {
-        return pokemon.fromPokeApi;
-      } else {
-        return !pokemon.fromPokeApi;
-      }
-    } else {
-      return true;
-    }
-  });
-
   //pide los pokemones haciendo dispatch de getPokemons
   useEffect(() => {
     dispatch(getPokemons());
     dispatch(getTypes());
   }, [dispatch]); //dependencias
+
+  //filtrado
+  const [orderBy, setOrderBy] = useState('asc');
+  const [filterByType, setFilterByType] = useState('all');
+  const [filterBySource, setFilterBySource] = useState('all');
+
+  let pokemons = [...allpokemons];
+
+  const isFromPokeApi = filterBySource === 'pokeapi';
+
+  // filtrado combinado, siempre se hace de primeras
+  if (filterByType !== 'all' && filterBySource !== 'all') {
+    pokemons = pokemons.filter((pokemon) => {
+      return (
+        pokemon.Types.some((t) => t.id === Number(filterByType)) &&
+        pokemon.fromPokeApi === isFromPokeApi
+      );
+    });
+  } else if (filterByType !== 'all') {
+    pokemons = pokemons.filter((pokemon) => {
+      return pokemon.Types.some((t) => t.id === Number(filterByType));
+    });
+  } else if (filterBySource !== 'all') {
+    pokemons = pokemons.filter((pokemon) => {
+      return pokemon.fromPokeApi === isFromPokeApi;
+    });
+  }
+
+  pokemons = pokemons.sort((a, b) => {
+    if (orderBy === 'asc') {
+      if (a.name < b.name) {
+        return -1;
+      }
+
+      if (a.name > b.name) {
+        return 1;
+      }
+    }
+
+    if (orderBy === 'desc') {
+      if (a.name < b.name) {
+        return 1;
+      }
+
+      if (a.name > b.name) {
+        return -1;
+      }
+    }
+
+    if (orderBy === 'strongest') {
+      if (a.attack < b.attack) {
+        return 1;
+      }
+
+      if (a.attack > b.attack) {
+        return -1;
+      }
+    }
+
+    if (orderBy === 'weakest') {
+      if (a.attack < b.attack) {
+        return -1;
+      }
+
+      if (a.attack > b.attack) {
+        return 1;
+      }
+    }
+
+    return 0;
+  });
+
+  //paginado
+  const [currentPage, setCurrentPage] = useState(1); //arranca en uno
+  const [pokemonsPerPage] = useState(12); //12 pokemons por pagina
+
+  const indexOfLastPokemon = currentPage * pokemonsPerPage;
+  const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
 
   return (
     <div className={style.contenedorPadre}>
@@ -56,9 +105,10 @@ export default function Home() {
       </div>
 
       <div className={style.filters}>
-        <div className={style.orderBy}>
-          <p>Order by</p>
+        <div>
+          <p className={style.orderBy}>Order by</p>
           <select
+            className={style.inputOrder}
             title="Order by"
             value={orderBy}
             onChange={(e) => setOrderBy(e.target.value)}
@@ -75,11 +125,15 @@ export default function Home() {
         </div>
 
         <div className={style.filterByType}>
-          <p>Filter by type</p>
+          <p className={style.tittleFilterBy}>Filter by type</p>
           <select
+            className={style.SelectType}
             title="Filter by type"
             value={filterByType}
-            onChange={(e) => setFilterByType(e.target.value)}
+            onChange={(e) => {
+              setFilterByType(e.target.value);
+              setCurrentPage(1);
+            }}
           >
             <option value="all">All</option>
             {types.map((t) => (
@@ -91,11 +145,15 @@ export default function Home() {
         </div>
 
         <div>
-          <p>Filter by source</p>
+          <p className={style.tittleFilterBySourse}>Filter by source</p>
           <select
+            className={style.selectSource}
             title="Filter by source"
             value={filterBySource}
-            onChange={(e) => setFilterBySource(e.target.value)}
+            onChange={(e) => {
+              setFilterBySource(e.target.value);
+              setCurrentPage(1);
+            }}
           >
             <option value="all">All</option>
             <option value="pokeapi">Pokeapi</option>
@@ -104,8 +162,14 @@ export default function Home() {
         </div>
       </div>
 
+      <Paginado
+        pokemonsPerPage={pokemonsPerPage}
+        allpokemons={pokemons.length}
+        paginado={setCurrentPage}
+      />
+
       <div className={style.cards}>
-        {pokemons.map((p) => (
+        {pokemons.slice(indexOfFirstPokemon, indexOfLastPokemon).map((p) => (
           <Link className={style.link} key={p.id} to={`/home/${p.id}`}>
             <Card
               className={style.card}

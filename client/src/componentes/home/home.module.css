@@ -26,8 +26,51 @@
 .filters {
   display: flex;
   justify-content: center;
+  
 }
 
 .orderBy, .filterByType {
   margin-right: 200px;
+  width: 100px;
+  font-family: 'Lato', sans-serif;
+  color: rgba(10, 10, 172, 0.896);
+  
+}
+
+.orderBy{
+  margin-left: 100px;
+
+}
+.inputOrder{
+  margin-right: 100px;
+  background-color: rgba(240, 248, 255, 0.478);
+  font-family: 'Lato', sans-serif;
+  border-radius: 5px;
+  height: 25px;
+}
+.tittleFilterBy{
+  font-family: 'Lato', sans-serif;
+  color: rgba(10, 10, 172, 0.896);
+
+}
+.SelectType{
+  background-color: rgba(240, 248, 255, 0.478);
+  font-family: 'Lato', sans-serif;
+  border-radius: 5px;
+  height: 25px;
+
+}
+.tittleFilterBySourse{
+  font-family: 'Lato', sans-serif;
+  color: rgba(10, 10, 172, 0.896);
+  
+}
+
+.selectSource{
+  background-color: rgba(240, 248, 255, 0.478);
+  font-family: 'Lato', sans-serif;
+  border-radius: 5px;
+  height: 25px;
+  
+
 }

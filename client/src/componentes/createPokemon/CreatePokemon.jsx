@@ -52,7 +52,8 @@ export default function CreatePokemon() {
                 type="text"
                 value={input.name}
                 name="name"
-                onChange={(e) => setInput({ ...input, name: e.target.value })}
+                required
+                onChange={(e) => setInput({ ...input, name: e.target.value.toLowerCase() })}
               />
             </label>
           </div>
@@ -64,6 +65,7 @@ export default function CreatePokemon() {
                 type="text"
                 value={input.picture}
                 name="image"
+                required
                 onChange={(e) =>
                   setInput({ ...input, picture: e.target.value })
                 }
@@ -75,10 +77,11 @@ export default function CreatePokemon() {
               Hp
               <input
                 className={style.input}
-                type="text"
+                type="number"
                 value={input.hp}
                 name="hp"
-                onChange={(e) => setInput({ ...input, hp: e.target.value })}
+                required
+                onChange={(e) => setInput({ ...input, hp: e.target.value})}
               />
             </label>
           </div>
@@ -90,7 +93,8 @@ export default function CreatePokemon() {
                 type="text"
                 value={input.attack}
                 name="attack"
-                onChange={(e) => setInput({ ...input, attack: e.target.value })}
+                required
+                onChange={(e) => setInput({ ...input, attack: e.target.value})}
               />
             </label>
           </div>
@@ -102,6 +106,7 @@ export default function CreatePokemon() {
                 type="text"
                 value={input.defense}
                 name="defense"
+                required
                 onChange={(e) =>
                   setInput({ ...input, defense: e.target.value })
                 }
@@ -116,6 +121,7 @@ export default function CreatePokemon() {
                 type="text"
                 value={input.speed}
                 name="speed"
+                required
                 onChange={(e) => setInput({ ...input, speed: e.target.value })}
               />
             </label>
@@ -128,6 +134,7 @@ export default function CreatePokemon() {
                 type="text"
                 value={input.height}
                 name="heigth"
+                required
                 onChange={(e) => setInput({ ...input, height: e.target.value })}
               />
             </label>
@@ -140,7 +147,8 @@ export default function CreatePokemon() {
                 type="text"
                 value={input.weight}
                 name="weight"
-                onChange={(e) => setInput({ ...input, weight: e.target.value })}
+                required
+                onChange={(e) => setInput({ ...input, weight: e.target.value  })}
               />
             </label>
           </div>

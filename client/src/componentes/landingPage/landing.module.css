@@ -8,27 +8,31 @@
 
 
 .titulo{
-    font-family: 'Bungee Spice', cursive;
-    right: 50px;
+    font-family: 'Lato', sans-serif;
+    right: 180px;
     top: 40%;
     position: absolute;
     text-align: center;
+    color: rgba(8, 8, 80, 0.896);
 
 }
 
 .button{
-    height: 55px;
+    height: 56px;
+    width: 250px;
     border-radius: 18px;
-    background: linear-gradient(to right, transparent 50%, rgb(89, 252, 87) 50%);
+    background: linear-gradient(to right, transparent 50%, rgba(230, 252, 87, 0.815) 50%);
     background-size: 200%;
     background-position: left;
     transition: background-position 0.5s;;
     margin-top: 450px;
-    font-family: 'Bungee Spice', cursive;
-    font-size: 25px;
+    font-family: 'Lato', sans-serif;
+    font-size: 21px;
     font-weight: 10px;
     margin-left:737px;
     cursor: pointer;
+    color: rgba(8, 8, 80, 0.896);
+   
     
     
 }
@@ -39,7 +43,7 @@
 }
 
 .imagenPokemones{
-    width: 600px;
+    width: 500px;
     left: 160px;
     position: absolute;
     top: 200px;

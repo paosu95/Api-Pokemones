@@ -29,6 +29,9 @@ export default function SearchBar() {
 
   return (
     <div>
+      <Link to='/' className={style.landing}>
+        Landing
+      </Link>
       <button type="button" className={style.allPokemons} onClick={handleClick}>
         All pokemons
       </button>
