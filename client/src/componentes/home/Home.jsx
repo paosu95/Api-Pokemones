@@ -97,10 +97,12 @@ export default function Home() {
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
 
+  const maximo = Math.ceil(pokemons.length / pokemonsPerPage);
+
   return (
     <div className={style.contenedorPadre}>
       <div>
-        <SearchBar />
+        <SearchBar onChange={() => setCurrentPage(1)} />
         <hr></hr>
       </div>
 
@@ -157,15 +159,15 @@ export default function Home() {
           >
             <option value="all">All</option>
             <option value="pokeapi">Pokeapi</option>
-            <option value="database">Database</option>
+            <option value="created">Created</option>
           </select>
         </div>
       </div>
 
       <Paginado
-        pokemonsPerPage={pokemonsPerPage}
-        allpokemons={pokemons.length}
-        paginado={setCurrentPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+        maximo={maximo}
       />
 
       <div className={style.cards}>

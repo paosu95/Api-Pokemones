@@ -29,22 +29,28 @@
 }
 
 .contenedor2{
-    margin-left: 250px;
-    margin-top: 90px;
+    margin-left: 220px;
+    margin-top: 150px;
     font-family: 'Lato', sans-serif;
     color: rgba(10, 10, 172, 0.896);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    border: solid rgba(0, 0, 0, 0.284);
-    width: 450px;
-    height: 500px;
-    background-color: rgba(240, 248, 255, 0.11);
+    box-shadow: rgba(248, 245, 245, 0.25) 0px 54px 55px, rgba(255, 253, 253, 0.12) 0px -12px 30px, rgba(223, 195, 31, 0.12) 0px 4px 6px, rgba(241, 19, 19, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: solid rgba(242, 240, 240, 0.625);
+    width: 400px;
+    height: 420px;
+    background-color: rgba(240, 248, 255, 0.303);
     border-radius: 10px;
     
 }
+.logoPokemones {
+    right: 40px;
+    top: 20px;
+    height: 50px;
+    position: absolute;
 
+}
 
 .titulo{
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     font-family: 'Lato', sans-serif;
     color: rgba(16, 16, 167, 0.96);
     font-size: 25px;

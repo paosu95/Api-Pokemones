@@ -6,14 +6,7 @@ export default function Card({ name, image, types }) {
     <div className={style.padreCard}>
       <h3 className={style.name}>{name}</h3>
       <img className={style.image} src={image} alt="pokemon" />
-      <p>{types.map(t => t.name).join(", ")}</p>
-      {/* <div>
-        {types.map((t) => (
-          <p key={t.id} className={style.type}>
-            {t.name}
-          </p>
-        ))}
-      </div> */}
+      <p>{types.map((t) => t.name).join(', ')}</p>
     </div>
   );
 }

@@ -29,24 +29,27 @@ export function getNamePokemons(name) {
 
 export function getTypes() {
   return async function (dispatch) {
-    const info = await axios.get('http://localhost:4000/types', {});
+    const response = await axios.get('http://localhost:4000/types', {});
     return dispatch({
       type: 'GET_TYPES',
-      payload: info.data,
+      payload: response.data,
     });
   };
 }
 
 export function postPokemon(payload) {
-  return async function (dispatch) {
-    const response = await axios.post(
-      'http://localhost:4000/pokemons',
-      payload,
-    );
-    return dispatch({
-      type: 'POST_POKEMON',
-      payload: response.data,
-    });
+  return async function () {
+    try {
+      await axios.post(
+        'http://localhost:4000/pokemons',
+        payload,
+      );
+
+      alert("Pokemon creado con exito!");
+      window.location.href = "/home";
+    } catch (error) {
+      alert("No se pudo crear un pokemon.");
+    }
   };
 }
 
@@ -58,4 +61,17 @@ export function getPokemon(id) {
       payload: response.data,
     });
   };
+}
+
+
+export function deletePokemon(id){
+  return async function (dispatch){
+    try {
+      await axios.delete('http://localhost:4000/pokemons/' + id);
+      alert("Pokemon eliminado satisfactoriamente!");
+      window.location.href = "/home";
+    } catch (error) {
+      alert("No se pudo eliminar el pokemon");
+    }
+  }
 }

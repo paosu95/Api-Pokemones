@@ -1,9 +1,9 @@
 .padreCard {
   background-color: rgba(240, 248, 255, 0.478);
-  border: solid rgba(0, 0, 0, 0.284);
+  border: solid rgba(217, 210, 210, 0.284);
   box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px,
-    rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
-    rgb(0 0 0 / 9%) 0px -3px 5px;
+    rgba(216, 213, 213, 0.12) 0px 4px 6px, rgba(98, 94, 94, 0.17) 0px 12px 13px,
+    rgba(99, 92, 92, 0.09) 0px -3px 5px;
     border-radius: 10px;
 }
 

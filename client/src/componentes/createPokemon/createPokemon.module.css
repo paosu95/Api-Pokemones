@@ -38,12 +38,29 @@
   display: flex;
   justify-content: center;
   margin-top: 40px;
+  width: 800px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(250, 235, 215, 0.273);
+  border: solid rgba(242, 240, 240, 0.625);
+  margin-left: 200px;
+  box-shadow: 2px 2px 15px #eff5ef5c inset;
+  color: #e8e8e8;
+ padding: 30px 30px 30px 20px;
+ border-radius: 20px;
 }
+
 
 .primerFormulario {
   text-align: left;
-  width: 500px;
+  width: 400px;
+  border-radius: 5px;
+ 
+  border: blue;
+
+  
 }
+
 
 .layout-types {
   display: flex;
@@ -52,24 +69,37 @@
 }
 .group {
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 2px;
 }
 .nombre {
   display: flex;
   flex-direction: column;
   color: rgba(8, 8, 112, 0.96);
   font-family: 'Lato', sans-serif;
+  margin-top: 10px;
+  position: relative;
+  
 }
 .input {
   width: 200px;
   height: 30px;
   background-color: rgba(240, 248, 255, 0.478);
   color: rgba(8, 8, 112, 0.96);
-  border-radius: 5px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 80px;
+  flex-direction: column;
+  display: flex;
+  /* box-shadow: 0 0 0 2px darken(steelblue 30); */
+ 
 }
 
 .formularioTypes {
   width: 500px;
+  border-radius: 5px;
+  
+ 
 }
 
 .tituloTypes {
@@ -95,4 +125,12 @@
   font-family: 'Lato', sans-serif;
   cursor: pointer;
   font-size: 15px;
+}
+.pokeBola{
+  width: 300px;
+  position: absolute;
+  right: 30px;
+  display: flex;
+  bottom: 100px;
+
 }

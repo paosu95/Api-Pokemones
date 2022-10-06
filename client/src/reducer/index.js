@@ -30,17 +30,7 @@ function rootReducer(state = initialState, action) {
         pokemon: action.payload,
       };
 
-    case 'POST_POKEMON':
-      return {
-        ...state,
-        pokemons: state.pokemons.concat(action.payload),
-      };
-
-    case 'DELETE_POKEMON':
-      return {
-        ...state,
-        pokemons: state.pokemons.filter((p) => p.id !== action.payload),
-      };
+    
 
     default:
       return state;

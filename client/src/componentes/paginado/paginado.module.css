@@ -1,4 +1,4 @@
-.paginado {
+/* .paginado {
   list-style-type: none;
   display: flex;
   justify-content: center;
@@ -14,4 +14,59 @@
   background: rgba(240, 248, 255, 0.278);
   border-color: rgba(0, 0, 255, 0.49);
   border-radius: 5px;
+}
+
+.paginado button.active {
+  cursor: pointer;
+  background: yellow;
+  font-weight: 900;
+  border-color: aqua;
+  cursor: pointer;
+} */
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+}
+.vector{
+  width: 10px;
+}
+
+.previusPage{
+  background-color: rgba(0, 0, 255, 0.766);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 13px;
+}
+.nextPage{
+  background-color: rgba(0, 0, 255, 0.766);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 13px;
+}
+
+.input{
+  height: 22px;
+  width: 50px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+button[disabled]{
+  background-color: rgba(0, 0, 0, 0.06);
 }

@@ -1,6 +1,6 @@
 const { ValidationError } = require('sequelize');
 const { Router } = require('express');
-const { Pokemon, Type } = require('../db');
+const { Pokemon, Type, Pokemon_Type } = require('../db');
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -60,7 +60,17 @@ router.post('/pokemons', async (request, response) => {
         'weight',
       ],
     });
-    response.send(await Pokemon.findByPk(pokemon.id, { include: Type }));
+
+    const pokemonTypes = body.types.map((t) => {
+        return {
+            TypeId: t,
+            PokemonId: pokemon.id,
+        }; 
+    });
+
+    await Pokemon_Type.bulkCreate(pokemonTypes);
+
+    response.end();
   } catch (error) {
     if (error instanceof ValidationError) {
       return response.status(400).send(error.errors.map((e) => e.message)); //** */
@@ -75,8 +85,15 @@ router.get('/types', async (request, response) => {
   response.json(types);
 });
 
-// router.delete('/pokemons', async (request, response) =>{
+router.delete('/pokemons/:id', async (request, response) =>{
+  const id = Number(request.params.id);
 
-// });
+  if (Number.isNaN(id)) {
+    return response.status(400).send({ error: 'El id no es valido' });
+  }
+
+  await Pokemon.destroy({ where: { id }});
+  response.status(200).send('Pokemon eliminado');
+});
 
 module.exports = router;

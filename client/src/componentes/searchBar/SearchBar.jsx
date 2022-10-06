@@ -6,7 +6,7 @@ import style from './searchBar.module.css';
 import { Link } from 'react-router-dom';
 import internationalPokemon from '../../img/International_Pokémon_logo.svg.webp';
 
-export default function SearchBar() {
+export default function SearchBar({ onChange }) {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
 
@@ -16,6 +16,7 @@ export default function SearchBar() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    onChange();
     if (name) {
       dispatch(getNamePokemons(name)); //estado local name
     } else {
@@ -28,8 +29,8 @@ export default function SearchBar() {
   }
 
   return (
-    <div>
-      <Link to='/' className={style.landing}>
+    <div className={style.search}>
+      <Link to="/" className={style.landing}>
         Landing
       </Link>
       <button type="button" className={style.allPokemons} onClick={handleClick}>
