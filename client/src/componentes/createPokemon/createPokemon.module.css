@@ -9,13 +9,10 @@
 .padreCreate {
   width: 100%;
   height: 100%;
-  position: absolute;
 }
 .createPokemon {
   font-family: 'Lato', sans-serif;
   color: rgba(8, 8, 112, 0.96);
-  margin-top: -20px;
-  margin-bottom: 15px;
 }
 .devolver {
   font-family: 'Lato', sans-serif;
@@ -37,30 +34,25 @@
 .formulario {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 30px;
   width: 800px;
   justify-content: center;
   align-items: center;
   background-color: rgba(250, 235, 215, 0.273);
-  border: solid rgba(242, 240, 240, 0.625);
+  border: solid rgba(242, 240, 240, 0.245);
   margin-left: 200px;
   box-shadow: 2px 2px 15px #eff5ef5c inset;
   color: #e8e8e8;
- padding: 30px 30px 30px 20px;
- border-radius: 20px;
+  padding: 20px 20px 30px 20px;
+  border-radius: 20px;
 }
-
 
 .primerFormulario {
   text-align: left;
   width: 400px;
   border-radius: 5px;
- 
   border: blue;
-
-  
 }
-
 
 .layout-types {
   display: flex;
@@ -78,28 +70,23 @@
   font-family: 'Lato', sans-serif;
   margin-top: 10px;
   position: relative;
-  
 }
 .input {
   width: 200px;
   height: 30px;
   background-color: rgba(240, 248, 255, 0.478);
   color: rgba(8, 8, 112, 0.96);
-  border-radius: 10px;
+  border-radius: 12px;
   align-items: center;
   justify-content: center;
   margin-left: 80px;
   flex-direction: column;
   display: flex;
-  /* box-shadow: 0 0 0 2px darken(steelblue 30); */
- 
 }
 
 .formularioTypes {
   width: 500px;
   border-radius: 5px;
-  
- 
 }
 
 .tituloTypes {
@@ -126,11 +113,9 @@
   cursor: pointer;
   font-size: 15px;
 }
-.pokeBola{
+.pokeBola {
   width: 300px;
-  position: absolute;
   right: 30px;
-  display: flex;
-  bottom: 100px;
-
+  position: absolute;
+  top: 300px;
 }
