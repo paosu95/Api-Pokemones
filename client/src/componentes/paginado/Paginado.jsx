@@ -8,7 +8,8 @@ export default function Paginado({ setCurrentPage, currentPage, maximo }) {
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    validatePagination("1");
+    validatePagination('1');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [maximo]);
 
   useEffect(() => {
@@ -16,12 +17,12 @@ export default function Paginado({ setCurrentPage, currentPage, maximo }) {
   }, [currentPage]);
 
   const nextPage = () => {
-    const newPage = currentPage + 1; 
+    const newPage = currentPage + 1;
     setCurrentPage(newPage);
   };
 
   const previousPage = () => {
-    const newPage = currentPage - 1; 
+    const newPage = currentPage - 1;
     setCurrentPage(newPage);
   };
 
@@ -30,7 +31,7 @@ export default function Paginado({ setCurrentPage, currentPage, maximo }) {
 
     if (page < 1 || page > maximo || isNaN(page)) {
       page = 1;
-    } 
+    }
 
     setCurrentPage(page);
     setInput(page.toString());
@@ -41,7 +42,7 @@ export default function Paginado({ setCurrentPage, currentPage, maximo }) {
       validatePagination(input);
     }
   };
-
+  //guarde en el input lo que el usuario digite
   const onChange = (e) => {
     setInput(e.target.value);
   };

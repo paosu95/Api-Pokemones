@@ -62,10 +62,11 @@ router.post('/pokemons', async (request, response) => {
     });
 
     const pokemonTypes = body.types.map((t) => {
-        return {
-            TypeId: t,
-            PokemonId: pokemon.id,
-        }; 
+      //*
+      return {
+        TypeId: t,
+        PokemonId: pokemon.id,
+      };
     });
 
     await Pokemon_Type.bulkCreate(pokemonTypes);
@@ -85,14 +86,14 @@ router.get('/types', async (request, response) => {
   response.json(types);
 });
 
-router.delete('/pokemons/:id', async (request, response) =>{
+router.delete('/pokemons/:id', async (request, response) => {
   const id = Number(request.params.id);
 
   if (Number.isNaN(id)) {
     return response.status(400).send({ error: 'El id no es valido' });
   }
 
-  await Pokemon.destroy({ where: { id }});
+  await Pokemon.destroy({ where: { id } });
   response.status(200).send('Pokemon eliminado');
 });
 

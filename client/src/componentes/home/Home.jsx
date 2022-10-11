@@ -26,21 +26,16 @@ export default function Home() {
 
   let pokemons = [...allpokemons];
 
-  const isFromPokeApi = filterBySource === 'pokeapi';
-
   // filtrado combinado, siempre se hace de primeras
-  if (filterByType !== 'all' && filterBySource !== 'all') {
-    pokemons = pokemons.filter((pokemon) => {
-      return (
-        pokemon.Types.some((t) => t.id === Number(filterByType)) &&
-        pokemon.fromPokeApi === isFromPokeApi
-      );
-    });
-  } else if (filterByType !== 'all') {
+  if (filterByType !== 'all') {
     pokemons = pokemons.filter((pokemon) => {
       return pokemon.Types.some((t) => t.id === Number(filterByType));
     });
-  } else if (filterBySource !== 'all') {
+  }
+
+  if (filterBySource !== 'all') {
+    const isFromPokeApi = filterBySource === 'pokeapi';
+
     pokemons = pokemons.filter((pokemon) => {
       return pokemon.fromPokeApi === isFromPokeApi;
     });
