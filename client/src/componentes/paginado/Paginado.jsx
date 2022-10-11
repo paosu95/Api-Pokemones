@@ -6,7 +6,8 @@ import vector2 from '../../img/Vector2.png';
 
 export default function Paginado({ setCurrentPage, currentPage, maximo }) {
   const [input, setInput] = useState('');
-
+  
+//solo cuando el maximo de la pagina cambie
   useEffect(() => {
     validatePagination('1');
     // eslint-disable-next-line react-hooks/exhaustive-deps
