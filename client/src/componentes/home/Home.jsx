@@ -8,6 +8,7 @@ import SearchBar from '../searchBar/SearchBar';
 import style from '../home/home.module.css';
 import Paginado from '../paginado/Paginado';
 
+
 export default function Home() {
   const dispatch = useDispatch();
   const allpokemons = useSelector((state) => state.pokemons); // Selecciona una parte del estado

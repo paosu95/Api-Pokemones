@@ -29,6 +29,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         pokemon: action.payload,
       };
+      case 'LIMPIAR_ESTADO':
+        return {
+          ...state,
+          pokemon: {}
+
+        }
 
     
 

@@ -10,6 +10,8 @@ export function getPokemons() {
   };
 }
 
+
+
 export function getNamePokemons(name) {
   return async function (dispatch) {
     try {
@@ -37,6 +39,8 @@ export function getTypes() {
   };
 }
 
+
+
 export function postPokemon(payload) {
   return async function () {
     try {
@@ -45,7 +49,7 @@ export function postPokemon(payload) {
       alert('Pokemon creado con exito!');
       window.location.href = '/home';
     } catch (error) {
-      alert('No se pudo crear un pokemon.');
+      alert('No se pudo crear un pokemon.+++');
     }
   };
 }
@@ -60,6 +64,17 @@ export function getPokemon(id) {
   };
 }
 
+export function limpiarEstado(){
+  return async function(dispatch){
+    return dispatch({
+      type: 'LIMPIAR_ESTADO',
+    })
+  }
+}
+
+
+
+
 export function deletePokemon(id) {
   return async function (dispatch) {
     try {
@@ -71,3 +86,4 @@ export function deletePokemon(id) {
     }
   };
 }
+

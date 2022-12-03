@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPokemon } from '../../actions';
+import { getPokemon, limpiarEstado } from '../../actions';
 import { Link } from 'react-router-dom';
 import style from './../detailPokemon/detailPokemon.module.css';
 import internationalPokemon from './../../img/International_Pokémon_logo.svg.webp';
 import { deletePokemon } from '../../actions';
+
 
 export default function DetailPokemon(props) {
   const dispatch = useDispatch();
@@ -18,10 +19,15 @@ export default function DetailPokemon(props) {
     dispatch(deletePokemon(id));
   };
 
+ 
+
   return (
     <div className={style.contenedor}>
       <Link to="/home/">
-        <p className={style.return}>Return to home</p>{' '}
+        <p 
+        onClick={()=> dispatch(limpiarEstado())}className={style.return}>Return to home
+        </p>
+        
       </Link>
       <h3 className={style.name}>{pokemon.name}</h3>
       <img
